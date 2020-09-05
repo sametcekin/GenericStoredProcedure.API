@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericStoredProcedure.API", "GenericStoredProcedure.API\GenericStoredProcedure.API.csproj", "{BC3E592E-18BB-4532-A7BC-9B912E4EA8F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericStoredProcedure.API.Library", "GenericStoredProcedure.API.Library\GenericStoredProcedure.API.Library.csproj", "{CE924AF6-E865-4DD0-95DF-7CD85891F187}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC3E592E-18BB-4532-A7BC-9B912E4EA8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC3E592E-18BB-4532-A7BC-9B912E4EA8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC3E592E-18BB-4532-A7BC-9B912E4EA8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC3E592E-18BB-4532-A7BC-9B912E4EA8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE924AF6-E865-4DD0-95DF-7CD85891F187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE924AF6-E865-4DD0-95DF-7CD85891F187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE924AF6-E865-4DD0-95DF-7CD85891F187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE924AF6-E865-4DD0-95DF-7CD85891F187}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD8BAACA-A72E-418C-82E4-208B5AB5309B}
+	EndGlobalSection
+EndGlobal
