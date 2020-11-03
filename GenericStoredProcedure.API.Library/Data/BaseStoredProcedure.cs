@@ -29,7 +29,7 @@ namespace GenericStoredProcedure.API.Library.Data
         public async Task<dynamic> GetStoredProcedureResult(StoredProcedureModel sql)
         {
             var parameters = new DynamicParameters(sql.Parameters);
-            var result = await _connectionFactory.DbConnection().QueryAsync<dynamic>(sql.StoredProcedureName, parameters, commandType: CommandType.StoredProcedure);
+            var result = await _connectionFactory.DbConnection().QueryAsync<dynamic>(sql.SqlCommandName, parameters, commandType: sql.SqlCommandType);
 
 
             foreach (var item in result)
@@ -41,10 +41,10 @@ namespace GenericStoredProcedure.API.Library.Data
                     {
                         Console.WriteLine(column);
                         JSONColumnName = column;
+                        Versioned.CallByName(item, JSONColumnName, CallType.Set, JsonConvert.DeserializeObject(Versioned.CallByName(item, JSONColumnName, CallType.Get)));
                     }
                 }
 
-                Versioned.CallByName(item, JSONColumnName, CallType.Set, JsonConvert.DeserializeObject(Versioned.CallByName(item, JSONColumnName, CallType.Get)));
             }
             return result;
         }

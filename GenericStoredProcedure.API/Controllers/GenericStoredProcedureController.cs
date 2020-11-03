@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using GenericStoredProcedure.API.Library.Data.Interfaces;
 using GenericStoredProcedure.API.Library.DataModel;
 using Microsoft.AspNetCore.Mvc;
