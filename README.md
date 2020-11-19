@@ -1,7 +1,7 @@
 # GenericStoredProcedure.API
 
-You can change connection strings from appsettings.json
-After changed your connection string if you want to change your database type like Sql,MySql... you have to change GenericStoredProcedure.API.Library/ConnectionFactory/ConnectionFactory.cs 
+#You can change connection strings from appsettings.json
+#After changed your connection string if you want to change your database type like Sql,MySql... you have to change GenericStoredProcedure.API.Library/ConnectionFactory/ConnectionFactory.cs 
 *
         /// <summary>
         /// There is an Generic DB Connection connection. You can change DefaultConnection from appsettings.json
@@ -15,8 +15,8 @@ After changed your connection string if you want to change your database type li
         }
 *
 
-After this modifications you can post request to the service.
-You can find from properties/launchSettings.json{applicationUrl}
+#After this modifications you can post request to the service.
+#You can find from properties/launchSettings.json{applicationUrl}
 
 #Example 1 Text SQL
 Sql Text post model is
