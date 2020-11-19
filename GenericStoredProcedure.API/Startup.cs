@@ -1,5 +1,6 @@
 using GenericStoredProcedure.API.Library.ConnectionFactory;
 using GenericStoredProcedure.API.Library.ConnectionFactory.Interfaces;
+using GenericStoredProcedure.API.Library.Data;
 using GenericStoredProcedure.API.Library.Data.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using GenericStoredProcedure.API.Library.Data;
 
 namespace GenericStoredProcedure.API
 {
@@ -31,7 +31,8 @@ namespace GenericStoredProcedure.API
 
             #region Interface and Class Mapping for DI
 
-            services.AddTransient<IBaseStoredProcedure, BaseStoredProcedure>();
+            services.AddTransient(typeof(IBaseStoredProcedure<>), typeof(BaseStoredProcedure<>));
+
 
             //For Connection DB (MySQL,SQLServer...)
             services.AddTransient<IConnectionFactory, ConnectionFactory>();

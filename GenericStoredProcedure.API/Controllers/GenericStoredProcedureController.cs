@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using GenericStoredProcedure.API.Library.Data.Interfaces;
+﻿using GenericStoredProcedure.API.Library.Data.Interfaces;
 using GenericStoredProcedure.API.Library.DataModel;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,9 +11,9 @@ namespace GenericStoredProcedure.API.Controllers
     [ApiController]
     public class GenericStoredProcedureController : ControllerBase
     {
-        private readonly IBaseStoredProcedure _genericStoredProcedure;
+        private readonly IBaseStoredProcedure<dynamic> _genericStoredProcedure;
 
-        public GenericStoredProcedureController(IBaseStoredProcedure genericStoredProcedure)
+        public GenericStoredProcedureController(IBaseStoredProcedure<dynamic> genericStoredProcedure)
         {
             _genericStoredProcedure = genericStoredProcedure;
         }

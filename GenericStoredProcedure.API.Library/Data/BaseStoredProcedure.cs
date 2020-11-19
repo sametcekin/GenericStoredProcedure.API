@@ -7,14 +7,12 @@ using Microsoft.VisualBasic.CompilerServices;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace GenericStoredProcedure.API.Library.Data
 {
-    public class BaseStoredProcedure : IBaseStoredProcedure
+    public class BaseStoredProcedure<TEntity> : IBaseStoredProcedure<TEntity> where TEntity : class
     {
         private readonly IConnectionFactory _connectionFactory;
 
@@ -26,11 +24,10 @@ namespace GenericStoredProcedure.API.Library.Data
         private string JSONColumnName { get; set; }
         private IEnumerable<string> ColumnNames { get; set; }
 
-        public async Task<dynamic> GetStoredProcedureResult(StoredProcedureModel sql)
+        public async Task<IEnumerable<TEntity>> GetStoredProcedureResult(StoredProcedureModel sql)
         {
             var parameters = new DynamicParameters(sql.Parameters);
-            var result = await _connectionFactory.DbConnection().QueryAsync<dynamic>(sql.SqlCommandName, parameters, commandType: sql.SqlCommandType);
-
+            var result = await _connectionFactory.DbConnection().QueryAsync<TEntity>(sql.SqlCommandName, parameters, commandType: sql.SqlCommandType);
 
             foreach (var item in result)
             {
@@ -41,7 +38,7 @@ namespace GenericStoredProcedure.API.Library.Data
                     {
                         Console.WriteLine(column);
                         JSONColumnName = column;
-                        Versioned.CallByName(item, JSONColumnName, CallType.Set, JsonConvert.DeserializeObject(Versioned.CallByName(item, JSONColumnName, CallType.Get)));
+                        Versioned.CallByName(item, JSONColumnName, CallType.Set, JsonConvert.DeserializeObject(Versioned.CallByName(item, JSONColumnName, CallType.Get).ToString()));
                     }
                 }
 

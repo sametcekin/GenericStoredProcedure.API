@@ -1,7 +1,7 @@
 ﻿using GenericStoredProcedure.API.Library.ConnectionFactory.Interfaces;
 using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace GenericStoredProcedure.API.Library.ConnectionFactory
 {
@@ -20,7 +20,7 @@ namespace GenericStoredProcedure.API.Library.ConnectionFactory
         /// <returns>MySQL connection</returns>
         public IDbConnection DbConnection()
         {
-            return new MySqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            return new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
         }
 
     }
