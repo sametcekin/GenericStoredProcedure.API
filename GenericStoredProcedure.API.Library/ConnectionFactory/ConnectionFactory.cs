@@ -1,5 +1,6 @@
 ﻿using GenericStoredProcedure.API.Library.ConnectionFactory.Interfaces;
 using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -22,6 +23,5 @@ namespace GenericStoredProcedure.API.Library.ConnectionFactory
         {
             return new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
         }
-
     }
 }
