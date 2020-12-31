@@ -27,22 +27,22 @@ namespace GenericStoredProcedure.API.Library.Data
         public async Task<IEnumerable<TEntity>> GetStoredProcedureResult(StoredProcedureModel sql)
         {
             var parameters = new DynamicParameters(sql.Parameters);
-            var result = await _connectionFactory.DbConnection().QueryAsync<TEntity>(sql.SqlCommandName, parameters, commandType: sql.SqlCommandType);
+            var result = await _connectionFactory.DbConnection().QueryAsync<TEntity>(sql.SqlScript, parameters, commandType: sql.SqlCommandType);
 
-            foreach (var item in result)
-            {
-                ColumnNames = ((IDictionary<string, object>)item).Keys.ToArray();
-                foreach (var column in ColumnNames)
-                {
-                    if (column.EndsWith("JSON"))
-                    {
-                        Console.WriteLine(column);
-                        JSONColumnName = column;
-                        Versioned.CallByName(item, JSONColumnName, CallType.Set, JsonConvert.DeserializeObject(Versioned.CallByName(item, JSONColumnName, CallType.Get).ToString()));
-                    }
-                }
+            //foreach (var item in result)
+            //{
+            //    ColumnNames = ((IDictionary<string, object>)item).Keys.ToArray();
+            //    foreach (var column in ColumnNames)
+            //    {
+            //        if (column.EndsWith("JSON"))
+            //        {
+            //            Console.WriteLine(column);
+            //            JSONColumnName = column;
+            //            Versioned.CallByName(item, JSONColumnName, CallType.Set, JsonConvert.DeserializeObject(Versioned.CallByName(item, JSONColumnName, CallType.Get).ToString()));
+            //        }
+            //    }
 
-            }
+            //}
             return result;
         }
 

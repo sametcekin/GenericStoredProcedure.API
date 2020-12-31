@@ -7,7 +7,7 @@ namespace GenericStoredProcedure.API.Library.DataModel
     {
         public CommandType SqlCommandType { get; set; }
 
-        public string SqlCommandName { get; set; }
+        public string SqlScript { get; set; }
 
         /// <summary>
         /// Dictionary Key=DatabaseStorredProcedureParamName, Value=C#ParamName

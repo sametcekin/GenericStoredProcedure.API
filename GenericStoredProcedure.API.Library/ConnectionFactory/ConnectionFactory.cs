@@ -21,7 +21,7 @@ namespace GenericStoredProcedure.API.Library.ConnectionFactory
         /// <returns>MySQL connection</returns>
         public IDbConnection DbConnection()
         {
-            return new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+            return new MySqlConnection(_configuration.GetConnectionString("DefaultConnection"));
         }
     }
 }

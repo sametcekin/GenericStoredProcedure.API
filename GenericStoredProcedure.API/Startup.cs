@@ -33,7 +33,6 @@ namespace GenericStoredProcedure.API
 
             services.AddTransient(typeof(IBaseStoredProcedure<>), typeof(BaseStoredProcedure<>));
 
-
             //For Connection DB (MySQL,SQLServer...)
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
 
